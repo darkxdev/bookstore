@@ -1,70 +1,129 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 📗 Table of Contents
 
-## Available Scripts
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+- [💻 Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+- [👤 Authors](#author)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
 
-In the project directory, you can run:
+<!-- PROJECT DESCRIPTION -->
 
-### `npm start`
+# 📖 Bookstore <a name="about-project"></a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+'Bookstore' is a project done at the Microverse program for portfolio showcase and learning purposes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 Built With <a name="built-with"></a>
 
-### `npm test`
+### Tech Stack <a name="tech-stack"></a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<details>
+  <summary>Languages</summary>
+  <ul>
+    <li>React</li>
+  </ul>
+</details>
 
-### `npm run build`
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Key Features <a name="key-features"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Dynamically generated HTML**
+- **User Interactive**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### `npm run eject`
+<!-- LIVE DEMO -->
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+You can checkout the live running version of this app at the following link:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+(Under Development)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<!-- GETTING STARTED -->
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 💻 Getting Started <a name="getting-started"></a>
 
-## Learn More
+To get a local copy up and running, follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Prerequisites
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+In order to run this project you need:
 
-### Code Splitting
+- VS Code installed.
+- A GitHub account.
+- Git Bash.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Setup
 
-### Analyzing the Bundle Size
+Clone this repository to your desired folder:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- On VS Code, you can click on the "Source Control" icon on the left side bar.
+- From there click on the "Clone Repository" button.
+- Paste the URL from this project and choose a folder to store it.
+- Open the project.
 
-### Making a Progressive Web App
+I do recommend this method given it is easier, but if you want you can make this process by running commands on the Git Bash terminal.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Advanced Configuration
+<!-- AUTHOR -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 👤 Author <a name="author"></a>
 
-### Deployment
+Bryan Hurtado
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- GitHub: [@DarkxDev](https://github.com/DarkxDev)
+- Twitter: [@BryanHurtado_](https://twitter.com/BryanHurtado_)
 
-### `npm run build` fails to minify
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- **Additional functional pages**
+- **User info collection through forms**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/DarkxDev/bookstore/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you like this project, please make sure to visit my page and checkout my other works as well.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+I would like to thank Microverse for its guidance throughout this project.
+
+<p align="right">(<a href="#readme-top">back to top</a>)<tra/p>
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./MIT.md) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
