@@ -1,18 +1,21 @@
 import { Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import './App.css';
 import Navbar from './components/navbar';
 import Books from './pages/Books';
 import Categories from './pages/Categories';
-import { initialBooksState } from './redux/books/booksSlice';
+import store from './redux/store';
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Books books={initialBooksState.books} />} />
-        <Route path="/categories" element={<Categories />} />
-      </Routes>
+      <Provider store={store}>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Books />} />
+          <Route path="/categories" element={<Categories />} />
+        </Routes>
+      </Provider>
     </>
   );
 }

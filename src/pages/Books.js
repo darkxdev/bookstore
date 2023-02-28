@@ -1,20 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addBook, removeBook } from '../redux/books/booksSlice';
 
-const Books = (props) => {
-  const { books } = props;
+const Books = () => {
   const dispatch = useDispatch();
+  const books = useSelector((state) => state.books.books);
 
   const handleAddBook = (event) => {
     event.preventDefault();
-    const title = event.target.elements.title.value;
-    const author = event.target.elements.author.value;
-    const itemId = `${title}-${author}`;
-    dispatch(addBook({ item_id: itemId, title, author }));
+    const titleInput = document.querySelector('#titleInput');
+    const authorInput = document.querySelector('#authorInput');
+    const itemId = `${titleInput.value}-${authorInput.value}`;
+    dispatch(addBook({ item_id: itemId, title: titleInput.value, author: authorInput.value }));
+    titleInput.value = '';
+    authorInput.value = '';
   };
-
   const handleRemoveBook = (itemId) => {
     dispatch(removeBook(itemId));
   };
@@ -47,15 +47,6 @@ const Books = (props) => {
       </form>
     </div>
   );
-};
-
-Books.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
 };
 
 export default Books;
