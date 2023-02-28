@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addBook, removeBook } from '../redux/books/booksSlice';
+import DisplayBooks from '../components/displayBooks';
 
 const Books = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const Books = () => {
     titleInput.value = '';
     authorInput.value = '';
   };
+
   const handleRemoveBook = (itemId) => {
     dispatch(removeBook(itemId));
   };
@@ -22,17 +24,7 @@ const Books = () => {
   return (
     <div>
       <h2>My Book List</h2>
-      <ul>
-        {books.map((book) => (
-          <li key={`${book.title}-${book.author}`}>
-            <span>{book.title}</span>
-            {' '}
-            by
-            <span>{book.author}</span>
-            <button type="button" onClick={() => handleRemoveBook(book.item_id)}>Remove</button>
-          </li>
-        ))}
-      </ul>
+      <DisplayBooks books={books} handleRemoveBook={handleRemoveBook} />
 
       <form>
         <label htmlFor="titleInput">
