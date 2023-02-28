@@ -11,7 +11,8 @@ const Books = (props) => {
     event.preventDefault();
     const title = event.target.elements.title.value;
     const author = event.target.elements.author.value;
-    dispatch(addBook({ title, author }));
+    const itemId = `${title}-${author}`;
+    dispatch(addBook({ item_id: itemId, title, author }));
   };
 
   const handleRemoveBook = (itemId) => {
