@@ -1,5 +1,5 @@
 // Define the initial state for books
-export const initialBooksState = {
+const initialBooksState = {
   books: [
     {
       item_id: 'item1',
@@ -21,3 +21,5 @@ export const initialBooksState = {
     },
   ],
 };
+
+export default initialBooksState;
