@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Display incoming books
 const DisplayBooks = ({ books, handleRemoveBook }) => (
   <ul>
     {books.map((book) => (
@@ -8,6 +9,7 @@ const DisplayBooks = ({ books, handleRemoveBook }) => (
         <span>{book.title}</span>
         {' '}
         by
+        {' '}
         <span>{book.author}</span>
         <button type="button" onClick={() => handleRemoveBook(book.item_id)}>Remove</button>
       </li>
@@ -15,6 +17,7 @@ const DisplayBooks = ({ books, handleRemoveBook }) => (
   </ul>
 );
 
+// Prop types validation
 DisplayBooks.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
