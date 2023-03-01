@@ -1,9 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-// Define the initial state for books
-const initialBooksState = {
-  books: [],
-};
+import initialBooksState from './initialStateSlice';
 
 // Define the books slice
 const booksSlice = createSlice({
@@ -15,7 +11,7 @@ const booksSlice = createSlice({
     },
     removeBook: (state, action) => ({
       ...state,
-      books: state.books.filter((book) => book.id !== action.payload),
+      books: state.books.filter((book) => book.item_id !== action.payload),
     }),
   },
 });

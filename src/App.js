@@ -1,23 +1,21 @@
 import { Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import './App.css';
 import Navbar from './components/navbar';
 import Books from './pages/Books';
 import Categories from './pages/Categories';
+import store from './redux/store';
 
 function App() {
-  const books = [
-    { title: 'The Catcher in the Rye', author: 'J.D. Salinger' },
-    { title: 'To Kill a Mockingbird', author: 'Harper Lee' },
-    { title: '1984', author: 'George Orwell' },
-  ];
-
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Books books={books} />} />
-        <Route path="/categories" element={<Categories />} />
-      </Routes>
+      <Provider store={store}>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Books />} />
+          <Route path="/categories" element={<Categories />} />
+        </Routes>
+      </Provider>
     </>
   );
 }
