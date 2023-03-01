@@ -23,7 +23,6 @@ DisplayBooks.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
-      item_id: PropTypes.string.isRequired,
     }),
   ).isRequired,
   handleRemoveBook: PropTypes.func.isRequired,
