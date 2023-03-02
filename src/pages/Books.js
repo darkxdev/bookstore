@@ -48,22 +48,16 @@ const Books = () => {
 
   // Render the component
   return (
-    <div>
-      <h2>My Book List</h2>
+    <div className="main-container">
       {/* Render the DisplayBooks component, passing props */}
       <DisplayBooks books={books} handleRemoveBook={handleRemoveBook} />
-
+      <div className="horizontal-divider" />
       {/* Render the form for adding a new book */}
+      <h2 className="form-title">ADD NEW BOOK</h2>
       <form>
-        <label htmlFor="titleInput">
-          Title:
-          <input type="text" name="title" id="titleInput" />
-        </label>
-        <label htmlFor="authorInput">
-          Author:
-          <input type="text" name="author" id="authorInput" />
-        </label>
-        <button type="submit" onClick={handleAddBook}>Add Book</button>
+        <input type="text" name="title" className="input" id="titleInput" placeholder="Book title" />
+        <input type="text" name="author" className="input" id="authorInput" placeholder="Book author" />
+        <button type="submit" className="button-form" onClick={handleAddBook}>ADD BOOK</button>
       </form>
     </div>
   );
