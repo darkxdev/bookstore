@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addBook, removeBook } from '../redux/books/booksSlice';
+import { addBook, removeBook, fetchBooks } from '../redux/books/booksSlice';
 import DisplayBooks from '../components/displayBooks';
 
 const Books = () => {
@@ -10,18 +10,30 @@ const Books = () => {
   // Get the books array from the store state
   const books = useSelector((state) => state.books.books);
 
+  // Fetch books from Bookstore API when the component has rendered
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
+
   // Function to handle adding a new book
-  const handleAddBook = (event) => {
+  const handleAddBook = async (event) => {
     // Prevent the default form submission behavior
     event.preventDefault();
 
     // Get the input values and create an ID for the new book
     const titleInput = document.querySelector('#titleInput');
     const authorInput = document.querySelector('#authorInput');
-    const itemId = `${titleInput.value}-${authorInput.value}`;
+    const itemId = `${titleInput.value}_${authorInput.value}`;
+
+    const newBook = {
+      item_id: itemId,
+      title: titleInput.value,
+      author: authorInput.value,
+      category: 'Fiction',
+    };
 
     // Dispatch an action to add the new book to the store
-    dispatch(addBook({ item_id: itemId, title: titleInput.value, author: authorInput.value }));
+    dispatch(addBook(newBook));
 
     // Clear the input fields
     titleInput.value = '';
@@ -29,7 +41,7 @@ const Books = () => {
   };
 
   // Function to handle removing a book
-  const handleRemoveBook = (itemId) => {
+  const handleRemoveBook = async (itemId) => {
     // Dispatch an action to remove the book with the given ID from the store
     dispatch(removeBook(itemId));
   };
