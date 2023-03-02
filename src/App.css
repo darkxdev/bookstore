@@ -252,6 +252,10 @@ form {
   width: 50%;
 }
 
+#authorInput {
+  width: 30%;
+}
+
 .input::placeholder {
   font-family: 'Montserrat', sans-serif;
   opacity: .5;
