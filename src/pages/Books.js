@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
 import { addBook, removeBook, fetchBooks } from '../redux/books/booksSlice';
 import DisplayBooks from '../components/displayBooks';
 
@@ -26,45 +25,25 @@ const Books = () => {
     const authorInput = document.querySelector('#authorInput');
     const itemId = `${titleInput.value}_${authorInput.value}`;
 
-    try {
-      const newBook = {
-        item_id: itemId,
-        title: titleInput.value,
-        author: authorInput.value,
-        category: 'Fiction',
-      };
+    const newBook = {
+      item_id: itemId,
+      title: titleInput.value,
+      author: authorInput.value,
+      category: 'Fiction',
+    };
 
-      // Send a POST request to the Bookstore API to add the new book
-      await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/LHtDguTMI5Nwg9HRI1l3/books', newBook);
+    // Dispatch an action to add the new book to the store
+    dispatch(addBook(newBook));
 
-      // Dispatch an action to add the new book to the store
-      dispatch(addBook(newBook));
-
-      // Clear the input fields
-      titleInput.value = '';
-      authorInput.value = '';
-    } catch (error) {
-      const errorMessageDiv = document.createElement('div');
-      errorMessageDiv.textContent = 'Error';
-      document.body.appendChild(errorMessageDiv);
-    }
+    // Clear the input fields
+    titleInput.value = '';
+    authorInput.value = '';
   };
 
   // Function to handle removing a book
   const handleRemoveBook = async (itemId) => {
-    try {
-      // Send a DELETE request to the Bookstore API to remove the book with the given ID
-      await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/LHtDguTMI5Nwg9HRI1l3/books/${itemId}`, {
-        data: { item_id: itemId },
-      });
-
-      // Dispatch an action to remove the book with the given ID from the store
-      dispatch(removeBook(itemId));
-    } catch (error) {
-      const errorMessageDiv = document.createElement('div');
-      errorMessageDiv.textContent = 'Error';
-      document.body.appendChild(errorMessageDiv);
-    }
+    // Dispatch an action to remove the book with the given ID from the store
+    dispatch(removeBook(itemId));
   };
 
   // Render the component

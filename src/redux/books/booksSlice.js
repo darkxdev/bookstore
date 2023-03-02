@@ -3,7 +3,7 @@ import axios from 'axios';
 import initialBooksState from './initialStateSlice';
 
 // Create an async thunk to fetch the books data from the API
-const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
   const response = await axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/LHtDguTMI5Nwg9HRI1l3/books');
   const booksArr = [];
   Object.keys(response.data).forEach((value) => {
@@ -14,19 +14,37 @@ const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
   return booksArr;
 });
 
+// Create an async thunk to add a new book
+export const addBook = createAsyncThunk('books/addBook', async (newBook, { rejectWithValue }) => {
+  try {
+    // Send a POST request to the Bookstore API to add the new book
+    await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/LHtDguTMI5Nwg9HRI1l3/books', newBook);
+
+    return newBook;
+  } catch (error) {
+    return rejectWithValue(error.response.data);
+  }
+});
+
+// Create an async thunk to remove a book
+export const removeBook = createAsyncThunk('books/removeBook', async (itemId, { rejectWithValue }) => {
+  try {
+    // Send a DELETE request to the Bookstore API to remove the book with the given ID
+    await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/LHtDguTMI5Nwg9HRI1l3/books/${itemId}`, {
+      data: { item_id: itemId },
+    });
+
+    return itemId;
+  } catch (error) {
+    return rejectWithValue(error.response.data);
+  }
+});
+
 // Define the books slice
 const booksSlice = createSlice({
   name: 'books',
   initialState: initialBooksState,
-  reducers: {
-    addBook: (state, action) => {
-      state.books.push(action.payload);
-    },
-    removeBook: (state, action) => ({
-      ...state,
-      books: state.books.filter((book) => book.item_id !== action.payload),
-    }),
-  },
+  reducers: {},
   extraReducers: {
     [fetchBooks.pending]: (state) => ({
       ...state,
@@ -42,13 +60,20 @@ const booksSlice = createSlice({
       status: 'failed',
       error: action.error.message,
     }),
+    [addBook.fulfilled]: (state, action) => {
+      state.books.push(action.payload);
+    },
+    [removeBook.fulfilled]: (state, action) => ({
+      ...state,
+      books: state.books.filter((book) => book.item_id !== action.payload),
+    }),
+    [removeBook.rejected]: () => {
+      const errorMessageDiv = document.createElement('div');
+      errorMessageDiv.textContent = 'Error';
+      document.body.appendChild(errorMessageDiv);
+    },
   },
 });
-
-// Export the slice actions and the async thunk
-export const { addBook, removeBook } = booksSlice.actions;
-
-export { fetchBooks };
 
 // Export the books reducer
 export default booksSlice.reducer;
